@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portfolio content editor</title>
+  <style>
+    :root { --bg:#07111f; --paper:#f4efe3; --muted:#aab8c8; --line:rgba(205,218,232,.18); --accent:#5dd8c7; }
+    * { box-sizing: border-box; }
+    body { margin:0; font-family: "Aptos", "Segoe UI", -apple-system, BlinkMacSystemFont, sans-serif; background:var(--bg); color:var(--paper); }
+    main { max-width: 1100px; margin: 0 auto; padding: 42px 20px; }
+    h1 { font-size: clamp(2rem,5vw,4rem); line-height:1; letter-spacing:-.025em; font-weight:590; }
+    p { color: var(--muted); line-height:1.6; }
+    textarea { width:100%; min-height:64vh; resize:vertical; border:1px solid var(--line); border-radius:20px; padding:18px; background:rgba(255,255,255,.06); color:var(--paper); font: 14px/1.55 "SF Mono", Consolas, monospace; }
+    .actions { display:flex; flex-wrap:wrap; gap:10px; margin:18px 0; }
+    button, a { min-height:44px; padding:0 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.08); color:var(--paper); display:inline-flex; align-items:center; cursor:pointer; text-decoration:none; }
+    button.primary { background: linear-gradient(135deg, var(--paper), #a9c4ff); color:#02070d; border:0; }
+    #status { min-height:24px; color: var(--accent); }
+  </style>
+  <script src="site-data.js"></script>
+</head>
+<body>
+  <main>
+    <h1>Content editor</h1>
+    <p>This helper edits the public content object only. It cannot save directly to your computer or hosting account. After downloading the new file, replace <code>site-data.js</code> in the website folder and redeploy.</p>
+    <div class="actions">
+      <button class="primary" id="download">Download site-data.js</button>
+      <button id="validate">Validate JSON</button>
+      <a href="index.html">Back to website</a>
+    </div>
+    <p id="status"></p>
+    <textarea id="editor" spellcheck="false"></textarea>
+  </main>
+  <script>
+    const editor = document.getElementById('editor');
+    const status = document.getElementById('status');
+    editor.value = JSON.stringify(window.PORTFOLIO_DATA || {}, null, 2);
+    function parse() {
+      try { const value = JSON.parse(editor.value); status.textContent = 'JSON is valid.'; return value; }
+      catch (error) { status.textContent = 'JSON error: ' + error.message; return null; }
+    }
+    document.getElementById('validate').addEventListener('click', parse);
+    document.getElementById('download').addEventListener('click', () => {
+      const value = parse();
+      if (!value) return;
+      const text = 'window.PORTFOLIO_DATA = ' + JSON.stringify(value, null, 2) + ';\n';
+      const blob = new Blob([text], { type: 'application/javascript' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'site-data.js';
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+  </script>
+</body>
+</html>
