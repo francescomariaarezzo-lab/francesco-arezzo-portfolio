@@ -2,7 +2,7 @@ window.PORTFOLIO_DATA = {
   "meta": {
     "title": "Francesco Maria Arezzo | Academic Portfolio",
     "description": "Academic portfolio of Francesco Maria Arezzo, a Mathematics and Artificial Intelligence student interested in machine learning, statistics, optimization and reproducible technical work.",
-    "url": ""
+    "url": "https://www.francescoarezzo.com"
   },
   "person": {
     "name": "Francesco Maria Arezzo",

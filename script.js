@@ -1,90 +1,14 @@
 (() => {
   const fallbackData = {
-    "meta": {
-      "title": "Francesco Maria Arezzo | Academic Portfolio",
-      "description": "Academic portfolio of Francesco Maria Arezzo, a Mathematics and Artificial Intelligence student interested in machine learning, statistics, optimization and reproducible technical work.",
-      "url": ""
-    },
-    "person": {
-      "name": "Francesco Maria Arezzo",
-      "shortName": "FA",
-      "role": "Mathematics & Artificial Intelligence Student",
-      "location": "Bocconi University, Milan, Italy",
-      "availability": "Open to research collaborations, analytical projects and internships",
-      "email": "francescomariaarezzo@gmail.com",
-      "linkedin": "https://www.linkedin.com/in/francesco-maria-arezzo",
-      "website": "",
-      "cv": "assets/files/Francesco_Maria_Arezzo_CV_OFFICIAL.pdf",
-      "heroEyebrow": "Academic profile",
-      "heroTitle": "",
-      "heroSubtitle": "A focused portfolio of my studies, selected projects, achievements and current technical work.",
-      "personalStatement": "I am a Mathematics and Artificial Intelligence student interested in rigorous reasoning, optimization, learning systems and the mathematical structures behind intelligent behaviour."
-    },
-    "metrics": [],
-    "studies": [
-      {
-        "subtitle": "Mathematical foundations",
-        "title": "Mathematics coursework",
-        "description": "Linear algebra, mathematical analysis, probability, mathematical statistics, physics, decision theory and human behaviour, dynamical systems, complex analysis, differential geometry and convex optimization."
-      },
-      {
-        "subtitle": "Computational foundations",
-        "title": "Computing coursework",
-        "description": "Algorithms and fundamentals of data structures, linear programming, convex programming and machine learning."
-      }
-    ],
-    "interests": [
-      "Artificial Intelligence",
-      "Machine Learning",
-      "Optimization",
-      "Probability",
-      "Statistics",
-      "Decision Theory",
-      "Mathematical Modelling",
-      "Recent History",
-      "Travel",
-      "Hiking and Skiing"
-    ],
-    "achievements": [
-      {
-        "year": "2026-2027",
-        "title": "IE University Madrid exchange",
-        "detail": "Selected on the basis of academic performance to spend the second semester of the 2026-2027 academic year at IE University in Madrid, within the Artificial Intelligence faculty."
-      },
-      {
-        "year": "2026",
-        "title": "APS Bank Malta internship",
-        "detail": "Selected for an internship at APS Bank in Malta, starting in July 2026, with exposure to a professional financial and analytical environment."
-      },
-      {
-        "year": "2023",
-        "title": "Regional Physics Games, second place",
-        "detail": "Long-standing participant in the Physics Games, with second place at the Eastern Sicily regional level as my strongest result."
-      }
-    ],
-    "nowNext": [
-      {
-        "label": "Building",
-        "title": "Machine-learning model in progress",
-        "detail": "I am currently developing a credit-default-risk prediction model. Once it is complete, I will add the notebook, results and full project file here."
-      },
-      {
-        "label": "Experience",
-        "title": "APS Bank internship in Malta",
-        "detail": "Currently completing an internship at APS Bank in Malta, gaining exposure to a banking environment and analytical work connected with real institutional contexts."
-      },
-      {
-        "label": "Next",
-        "title": "IE University Madrid exchange",
-        "detail": "During the second semester of the 2026-2027 academic year, I will study at IE University in Madrid within the Artificial Intelligence faculty, with a focus on deep learning, reinforcement learning and computer vision."
-      }
-    ],
-    "projects": [],
-    "contact": {
-      "headline": "For collaborations, projects or research conversations, send me a note.",
-      "body": "I am especially interested in mathematical modelling, machine learning, statistics, analytical projects and ambitious student research.",
-      "primaryAction": "Write an email"
-    }
+    meta: {},
+    person: {},
+    metrics: [],
+    studies: [],
+    interests: [],
+    achievements: [],
+    nowNext: [],
+    projects: [],
+    contact: {}
   };
   const baseData = window.PORTFOLIO_DATA || fallbackData;
   const data = {
@@ -258,7 +182,7 @@
     const title = $('#fileTitle');
     const subtitle = $('#fileSubtitle');
     if (title) title.textContent = project.title;
-    if (subtitle) subtitle.textContent = `${project.fileType || 'file'} - ${fileNameFromPath(project.file) || 'embedded preview'}`;
+    if (subtitle) subtitle.textContent = `${project.fileType || 'file'} - ${fileNameFromPath(project.file) || 'configured file'}`;
     renderProjectExplanation(project);
     await renderProjectFile(project, requestId);
   }
@@ -299,38 +223,36 @@
       return;
     }
 
+    if (!project.file) {
+      preview.innerHTML = renderUnavailable(project, 'No file path has been configured for this project.');
+      return;
+    }
+
     if (type === 'jupyter' || type === 'ipynb' || String(project.file || '').toLowerCase().endsWith('.ipynb')) {
-      let notebook = project.notebookFallback || null;
-      if (project.file && window.location.protocol !== 'file:') {
-        try {
-          const text = await readTextFile(project.file);
-          notebook = JSON.parse(text);
-        } catch (error) {
-          // Embedded fallback keeps the preview working on local files and restrictive hosts.
-        }
-      }
-      if (requestId !== state.projectRequest) return;
-      if (!notebook) {
-        preview.innerHTML = renderUnavailable(project, 'The notebook could not be loaded here. Use the buttons below to open or download the original file.');
+      let notebook = null;
+      try {
+        const text = await readTextFile(project.file);
+        notebook = JSON.parse(text);
+      } catch (error) {
+        if (requestId !== state.projectRequest) return;
+        preview.innerHTML = renderUnavailable(project, 'The notebook could not be loaded from assets/files/. Make sure the file exists, then commit and push the updated repository.');
         return;
       }
+      if (requestId !== state.projectRequest) return;
       renderNotebook(notebook, project);
       return;
     }
 
-    let code = project.codeFallback || '';
-    if (project.file && window.location.protocol !== 'file:') {
-      try {
-        const fetched = await readTextFile(project.file);
-        if (fetched) code = fetched;
-      } catch (error) {
-        // Keep the embedded fallback if fetch is not available.
-      }
+    try {
+      const code = await readTextFile(project.file);
+      if (requestId !== state.projectRequest) return;
+      renderCode(code, 'python', project);
+    } catch (error) {
+      if (requestId !== state.projectRequest) return;
+      preview.innerHTML = renderUnavailable(project, 'The file could not be loaded from assets/files/. Make sure the file exists, then commit and push the updated repository.');
     }
-    if (requestId !== state.projectRequest) return;
-    if (!code) code = `Could not load ${project.file || 'this file'}. Open or download the original file instead.`;
-    renderCode(code, 'python', project);
   }
+
 
   async function readTextFile(path) {
     if (!path) throw new Error('Missing file path');
@@ -355,57 +277,6 @@
     return parts.length ? parts[parts.length - 1] : '';
   }
 
-  const embeddedFileUrls = new Map();
-
-  function getEmbeddedFile(project) {
-    if (!project) return null;
-    const embedded = project.embeddedFile;
-    if (embedded && (embedded.base64 || embedded.text)) return embedded;
-
-    const type = String(project.fileType || '').toLowerCase();
-    const fallbackName = fileNameFromPath(project.file) || `${slugify(project.title || 'project') || 'project'}.${type === 'jupyter' || type === 'ipynb' ? 'ipynb' : 'txt'}`;
-
-    if (project.notebookFallback) {
-      return {
-        fileName: fallbackName.endsWith('.ipynb') ? fallbackName : `${fallbackName}.ipynb`,
-        mime: 'application/x-ipynb+json;charset=utf-8',
-        text: JSON.stringify(project.notebookFallback, null, 2),
-      };
-    }
-
-    if (project.codeFallback) {
-      return {
-        fileName: fallbackName.endsWith('.py') ? fallbackName : `${fallbackName}.py`,
-        mime: 'text/x-python;charset=utf-8',
-        text: String(project.codeFallback),
-      };
-    }
-
-    return null;
-  }
-
-  function getEmbeddedFileUrl(project) {
-    const embedded = getEmbeddedFile(project);
-    if (!embedded) return '';
-    const key = `${project.title || 'project'}::${embedded.fileName || project.file || 'embedded-file'}`;
-    if (embeddedFileUrls.has(key)) return embeddedFileUrls.get(key);
-
-    let blob;
-    if (embedded.base64) {
-      const base64 = String(embedded.base64 || '');
-      const binary = atob(base64);
-      const bytes = new Uint8Array(binary.length);
-      for (let i = 0; i < binary.length; i += 1) bytes[i] = binary.charCodeAt(i);
-      blob = new Blob([bytes], { type: embedded.mime || 'application/octet-stream' });
-    } else {
-      blob = new Blob([String(embedded.text || '')], { type: embedded.mime || 'text/plain;charset=utf-8' });
-    }
-
-    const url = URL.createObjectURL(blob);
-    embeddedFileUrls.set(key, url);
-    return url;
-  }
-
   function slugify(value) {
     return String(value || '')
       .toLowerCase()
@@ -416,60 +287,26 @@
   }
 
   function renderFileActions(project, openLabel = 'Open original') {
-    const embedded = getEmbeddedFile(project);
     const src = toResourceUrl(project.file || '');
-    if (!src && !embedded) return '';
-    const fileName = (embedded && embedded.fileName) || fileNameFromPath(project.file);
+    if (!src) return '';
+    const fileName = fileNameFromPath(project.file);
     const type = String(project.fileType || 'file').toUpperCase();
-    const projectIndex = (data.projects || []).indexOf(project);
-    const actionAttrs = embedded && projectIndex >= 0 ? ` data-project-index="${projectIndex}"` : '';
     return `
       <div class="file-toolbar" aria-label="File actions">
         <span class="status-pill">${escapeHtml(type)}</span>
         <div class="file-toolbar-actions">
-          <a class="small-button" href="${escapeHtml(src || '#')}" target="_blank" rel="noreferrer" data-file-action="open"${actionAttrs}>${escapeHtml(openLabel)}</a>
-          <a class="small-button" href="${escapeHtml(src || '#')}" download="${escapeHtml(fileName)}" data-file-action="download"${actionAttrs}>Download</a>
+          <a class="small-button" href="${escapeHtml(src)}" target="_blank" rel="noreferrer">${escapeHtml(openLabel)}</a>
+          <a class="small-button" href="${escapeHtml(src)}" download="${escapeHtml(fileName)}">Download</a>
         </div>
       </div>
     `;
   }
 
+
   function initFileActions() {
-    document.addEventListener('click', (event) => {
-      const action = event.target.closest('[data-file-action]');
-      if (!action) return;
-      const index = Number(action.dataset.projectIndex);
-      const project = Number.isInteger(index) ? (data.projects || [])[index] : null;
-      const embedded = getEmbeddedFile(project);
-      if (!embedded) return;
-
-      const url = getEmbeddedFileUrl(project);
-      if (!url) return;
-      event.preventDefault();
-
-      const fileName = embedded.fileName || fileNameFromPath(project.file) || 'download';
-      if (action.dataset.fileAction === 'download') {
-        const anchor = document.createElement('a');
-        anchor.href = url;
-        anchor.download = fileName;
-        document.body.appendChild(anchor);
-        anchor.click();
-        anchor.remove();
-        return;
-      }
-
-      const opened = window.open(url, '_blank', 'noopener,noreferrer');
-      if (!opened) {
-        const anchor = document.createElement('a');
-        anchor.href = url;
-        anchor.target = '_blank';
-        anchor.rel = 'noreferrer';
-        document.body.appendChild(anchor);
-        anchor.click();
-        anchor.remove();
-      }
-    });
+    // File actions intentionally use the real files in assets/files/.
   }
+
 
   function renderUnavailable(project, message) {
     return `
@@ -544,9 +381,9 @@
       return total + extractPlotSummaries(source).length;
     }, 0);
     const bannerText = outputCount
-      ? `${outputCount} embedded output${outputCount === 1 ? '' : 's'} detected and rendered below.`
+      ? `${outputCount} saved output${outputCount === 1 ? '' : 's'} detected and rendered below.`
       : plotCount
-        ? 'The uploaded notebook has its outputs cleared; plot-producing cells are marked so the preview remains readable.'
+        ? 'The uploaded notebook has its outputs cleared; rerun and save the notebook if you want figures to appear here.'
         : 'Source-only notebook preview.';
 
     preview.innerHTML = `
@@ -588,27 +425,9 @@
     const outputs = Array.isArray(cell.outputs) ? cell.outputs : [];
     const rendered = outputs.map((output, outputIndex) => renderNotebookOutput(output, outputIndex)).filter(Boolean).join('');
     if (rendered) return `<div class="notebook-outputs">${rendered}</div>`;
-
-    const plotSummaries = extractPlotSummaries(source);
-    const mentionsDisplay = /\bdisplay\s*\(/.test(source);
-    if (!plotSummaries.length && !mentionsDisplay) return '';
-
-    const plotCards = plotSummaries.length
-      ? `<div class="plot-summary-grid">${plotSummaries.map(renderPlotSummaryCard).join('')}</div>`
-      : '';
-    const detail = plotSummaries.length
-      ? 'This cell creates plots, but the uploaded .ipynb file does not contain saved image outputs. Open or run the notebook to regenerate the exact figures.'
-      : 'This cell displays a table or value, but the uploaded .ipynb file does not contain saved output for it.';
-    return `
-      <div class="notebook-outputs output-placeholder">
-        <div class="output-note">
-          <strong>Output not embedded in the notebook file</strong>
-          <span>${escapeHtml(detail)}</span>
-        </div>
-        ${plotCards}
-      </div>
-    `;
+    return '';
   }
+
 
   function renderNotebookOutput(output, outputIndex) {
     if (!output) return '';
