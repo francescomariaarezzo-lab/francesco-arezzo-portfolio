@@ -65,7 +65,7 @@ ul { padding: 0; margin: 0; list-style: none; }
 .coursework { margin-top: 22px; }
 .coursework h4 { font: italic 18px/1.5 var(--serif); color: var(--accent); margin: 0; }
 .coursework-note { font-size: 12px; color: var(--muted); margin-top: 4px; }
-.coursework-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 16px; }
+.coursework-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin-top: 16px; }
 .coursework-groups h5 { font-size: 13px; font-weight: 500; line-height: 1.7; margin: 0 0 8px; }
 .coursework-groups ul { list-style: disc; padding-left: 15px; color: var(--muted); font-size: 13px; line-height: 1.75; }
 .coursework-groups li + li { margin-top: 5px; }
@@ -145,9 +145,6 @@ ul { padding: 0; margin: 0; list-style: none; }
 @media (max-width: 1050px) {
   .navigation ul { gap: 25px; }
   .section { grid-template-columns: 150px minmax(0, 1fr); gap: 28px; }
-  .coursework-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .coursework-groups > div:last-child { grid-column: 1 / -1; }
-  .coursework-groups > div:last-child ul { columns: 2; column-gap: 28px; }
   .coursework-groups li { break-inside: avoid; }
 }
 @media (max-width: 760px) {
@@ -190,7 +187,6 @@ ul { padding: 0; margin: 0; list-style: none; }
   .record-date { font-size: 11px; }
   .record-subtitle { font-size: 14px; }
   .coursework-groups { grid-template-columns: minmax(0, 1fr); gap: 20px; }
-  .coursework-groups > div:last-child ul { columns: 1; }
   .project summary { column-gap: 13px; }
   .bank-case summary { column-gap: 13px; }
   .project h3 { font-size: 24px; }
