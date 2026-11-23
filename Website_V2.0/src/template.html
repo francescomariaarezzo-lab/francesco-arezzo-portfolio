@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fdfdfb">
+  <meta name="description" content="{{DESCRIPTION}}">
+  <meta name="author" content="{{FULL_NAME}}">
+  <meta name="robots" content="index, follow">
+  <title>{{TITLE}}</title>
+  <link rel="canonical" href="{{URL}}/">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="{{NAME}}">
+  <meta property="og:title" content="{{TITLE}}">
+  <meta property="og:description" content="{{DESCRIPTION}}">
+  <meta property="og:url" content="{{URL}}/">
+  <meta property="og:image" content="{{URL}}/assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Francesco Arezzo — Mathematics and Artificial Intelligence at Bocconi University">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{TITLE}}">
+  <meta name="twitter:description" content="{{DESCRIPTION}}">
+  <meta name="twitter:image" content="{{URL}}/assets/social-card.png">
+  <style>{{CSS}}</style>
+  <script type="application/ld+json">{{JSON_LD}}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="wordmark" href="#top" aria-label="Francesco Arezzo, back to top"><span aria-hidden="true">fa<span class="wordmark-dot">.</span></span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="navigation">Menu<span class="menu-symbol" aria-hidden="true"></span></button>
+      <nav class="navigation" id="navigation" aria-label="Main navigation"><ul>{{NAVIGATION}}</ul></nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <h1 id="hero-title">{{NAME}}</h1>
+        <div class="hero-copy">
+          <p class="hero-subtitle">{{HERO_SUBTITLE}}</p>
+          <p class="hero-intro">{{HERO_INTRO}}</p>
+          <p class="hero-context">{{HERO_CONTEXT}}</p>
+        </div>
+        <div class="hero-actions">
+          <a class="text-link" href="#projects">Selected projects {{ICON_DOWN}}</a>
+          <a class="text-link secondary" href="{{PROFILE}}" download="Francesco_Arezzo_Profile.pdf">Profile PDF {{ICON_DOWN}}</a>
+        </div>
+      </section>
+      <section class="section" id="education" aria-labelledby="education-label" tabindex="-1">
+        <h2 class="section-label" id="education-label">Education</h2>
+        <div class="section-content">{{EDUCATION}}</div>
+      </section>
+      <section class="section" id="experience" aria-labelledby="experience-label" tabindex="-1">
+        <h2 class="section-label" id="experience-label">Experience</h2>
+        <div class="section-content">{{EXPERIENCE}}</div>
+      </section>
+      <section class="section" id="projects" aria-labelledby="projects-label" tabindex="-1">
+        <h2 class="section-label" id="projects-label">Academic projects</h2>
+        <div class="section-content">{{PROJECTS}}</div>
+      </section>
+      <section class="section" id="recognition" aria-labelledby="recognition-label" tabindex="-1">
+        <h2 class="section-label" id="recognition-label">Recognition</h2>
+        <div class="section-content">
+          <ul class="awards">{{AWARDS}}</ul>
+          <div class="toolkit" aria-labelledby="toolkit-label"><h3 id="toolkit-label">Toolkit & languages</h3><dl>{{TOOLKIT}}</dl></div>
+        </div>
+      </section>
+    </div>
+    <div class="contact-section">
+      <section class="section wrap" id="contact" aria-labelledby="contact-label" tabindex="-1">
+        <h2 class="section-label" id="contact-label">Contact</h2>
+        <div class="contact-content">
+          <a class="email-link" href="mailto:{{EMAIL}}"><span class="email-address">{{EMAIL}}</span>{{ICON_EXTERNAL}}</a>
+          <div class="contact-links">
+            <a href="{{GITHUB}}" target="_blank" rel="noopener noreferrer">GitHub {{ICON_EXTERNAL}}<span class="screen-reader-only"> (opens in a new tab)</span></a>
+            <a href="{{LINKEDIN}}" target="_blank" rel="noopener noreferrer">LinkedIn {{ICON_EXTERNAL}}<span class="screen-reader-only"> (opens in a new tab)</span></a>
+            <a href="{{PROFILE}}" download="Francesco_Arezzo_Profile.pdf">Profile PDF {{ICON_DOWN}}</a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer wrap">
+    <p>© {{YEAR}} {{NAME}}</p>
+    <div class="footer-right"><span>Updated {{EDITION}}</span><a href="#top">Top {{ICON_UP}}</a></div>
+  </footer>
+  <script>{{JS}}</script>
+</body>
+</html>

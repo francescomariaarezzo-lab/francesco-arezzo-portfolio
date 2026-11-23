@@ -1,0 +1,424 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#fdfdfb">
+  <meta name="description" content="Bocconi mathematics and AI undergraduate, interested in mathematical ideas and their applications in artificial intelligence, reinforcement learning and data science.">
+  <meta name="author" content="Francesco Maria Arezzo">
+  <meta name="robots" content="index, follow">
+  <title>Francesco Arezzo — Mathematics &amp; Artificial Intelligence</title>
+  <link rel="canonical" href="https://www.francescoarezzo.com/">
+  <link rel="icon" type="image/svg+xml" href="./assets/favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/favicon-32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="./assets/apple-touch-icon.png">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_GB">
+  <meta property="og:site_name" content="Francesco Arezzo">
+  <meta property="og:title" content="Francesco Arezzo — Mathematics &amp; Artificial Intelligence">
+  <meta property="og:description" content="Bocconi mathematics and AI undergraduate, interested in mathematical ideas and their applications in artificial intelligence, reinforcement learning and data science.">
+  <meta property="og:url" content="https://www.francescoarezzo.com/">
+  <meta property="og:image" content="https://www.francescoarezzo.com/assets/social-card.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Francesco Arezzo — Mathematics and Artificial Intelligence at Bocconi University">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Francesco Arezzo — Mathematics &amp; Artificial Intelligence">
+  <meta name="twitter:description" content="Bocconi mathematics and AI undergraduate, interested in mathematical ideas and their applications in artificial intelligence, reinforcement learning and data science.">
+  <meta name="twitter:image" content="https://www.francescoarezzo.com/assets/social-card.png">
+  <style>:root {
+  color-scheme: light;
+  --paper: #fdfdfb;
+  --surface: #eff6f2;
+  --ink: #21332e;
+  --muted: #5d6d65;
+  --accent: #326a59;
+  --line: #dce7df;
+  --soft-accent: #b6d2c2;
+  --serif: Georgia, 'Times New Roman', serif;
+  --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+  --mono: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  --gutter: clamp(24px, 6vw, 88px);
+  --ease: cubic-bezier(.22, 1, .36, 1);
+  --feedback: 220ms;
+}
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 106px; }
+body { margin: 0; background: var(--paper); color: var(--ink); font: 15px/1.8 var(--sans); -webkit-font-smoothing: antialiased; }
+::selection { color: var(--ink); background: #dcece2; }
+a { color: inherit; text-decoration-thickness: 1px; text-underline-offset: 5px; transition: color var(--feedback) ease; }
+button { color: inherit; font: inherit; }
+a, button, summary { -webkit-tap-highlight-color: transparent; }
+a:focus-visible, button:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; border-radius: 2px; }
+main:focus, section:focus { outline: none; }
+button, summary { touch-action: manipulation; }
+svg { display: block; flex-shrink: 0; }
+p, h1, h2, h3 { margin: 0; }
+h1, h2, h3 { font-weight: 400; }
+ul { padding: 0; margin: 0; list-style: none; }
+.wrap { width: min(1120px, calc(100% - var(--gutter) * 2)); margin-inline: auto; }
+.skip-link { position: fixed; top: -100px; left: 16px; z-index: 100; padding: 10px 18px; color: var(--paper); background: var(--ink); }
+.skip-link:focus { top: 12px; }
+.site-header { position: sticky; top: 0; z-index: 20; background: var(--paper); border-bottom: 1px solid var(--line); }
+.header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; gap: 30px; }
+.wordmark { display: inline-flex; align-items: center; min-width: 44px; min-height: 44px; font: 29px/1 var(--serif); letter-spacing: -2px; text-decoration: none; }
+.wordmark-dot { color: var(--accent); }
+.navigation ul { display: flex; gap: 30px; }
+.navigation a { display: inline-flex; align-items: center; min-height: 44px; font-size: 13px; text-decoration: none; color: var(--muted); position: relative; }
+.navigation a:hover, .navigation a:focus-visible, .navigation a[aria-current] { color: var(--ink); }
+.navigation a::after { content: ''; position: absolute; height: 1px; bottom: 8px; inset-inline: 0; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform var(--feedback) var(--ease); }
+.navigation a:hover::after, .navigation a:focus-visible::after, .navigation a[aria-current]::after { transform: scaleX(1); }
+.menu-button { display: none; border: 0; background: transparent; padding: 10px 0 10px 12px; min-height: 44px; cursor: pointer; font-size: 13px; }
+.hero { padding: 80px 0 64px; }
+.hero h1 { font-family: var(--serif); font-size: clamp(60px, 7.4vw, 94px); line-height: 1.08; letter-spacing: -.062em; }
+.hero-copy { max-width: 720px; margin-top: 27px; }
+.hero-subtitle { color: var(--accent); font-size: 17px; }
+.hero-intro { max-width: 690px; font-family: var(--serif); font-size: 26px; line-height: 1.55; letter-spacing: -.02em; margin-top: 18px; }
+.hero-context { margin-top: 17px; color: var(--muted); font-size: 12px; }
+.hero-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 28px; margin-top: 26px; }
+.text-link { display: inline-flex; align-items: center; gap: 13px; min-height: 44px; font-size: 13px; text-decoration: none; border-bottom: 1px solid var(--ink); transition: color var(--feedback) ease, border-color var(--feedback) ease; }
+.text-link:hover, .text-link:focus-visible { color: var(--accent); border-color: var(--accent); }
+.text-link.secondary { color: var(--muted); border-color: var(--line); }
+.text-link svg, .contact-links svg, .footer-right svg { width: 13px; height: 13px; transition: transform var(--feedback) var(--ease); }
+.text-link:hover svg, .text-link:focus-visible svg { transform: translateY(2px); }
+.section { display: grid; grid-template-columns: 196px minmax(0, 1fr); gap: 38px; border-top: 1px solid var(--line); padding: 47px 0 50px; }
+.section-label { color: var(--accent); font: italic 22px/1.4 var(--serif); letter-spacing: -.02em; padding-top: 1px; }
+.section-content { min-width: 0; }
+.record-top { display: flex; align-items: baseline; justify-content: space-between; gap: 20px; }
+.record-title { font: 26px/1.3 var(--serif); letter-spacing: -.025em; }
+.record-date { color: var(--muted); font: 12px/1.7 var(--mono); white-space: nowrap; }
+.record-subtitle { max-width: 600px; font-size: 14px; line-height: 1.75; margin-top: 7px; }
+.record-meta { color: var(--muted); font-size: 12px; margin-top: 6px; }
+.record-note { font-size: 12px; color: var(--muted); line-height: 1.8; margin-top: 8px; }
+.coursework { margin-top: 22px; }
+.coursework h4 { font: italic 18px/1.5 var(--serif); color: var(--accent); margin: 0; }
+.coursework-note { font-size: 12px; color: var(--muted); margin-top: 4px; }
+.coursework-groups { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; margin-top: 16px; }
+.coursework-groups h5 { font-size: 13px; font-weight: 500; line-height: 1.7; margin: 0 0 8px; }
+.coursework-groups ul { list-style: disc; padding-left: 15px; color: var(--muted); font-size: 13px; line-height: 1.75; }
+.coursework-groups li + li { margin-top: 5px; }
+.education-record + .education-record { margin-top: 27px; }
+.certificate { margin-top: 23px; color: var(--muted); font-size: 12px; }
+.contributions { margin-top: 24px; }
+.bank-case + .bank-case { border-top: 1px solid var(--line); }
+.bank-case summary { list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) 24px; gap: 0 25px; padding: 20px 0; cursor: pointer; }
+.bank-case:first-child summary { padding-top: 0; }
+.bank-case summary::-webkit-details-marker { display: none; }
+.bank-case h4 { grid-column: 1; grid-row: 1; font: 20px/1.45 var(--serif); letter-spacing: -.015em; margin: 0; transition: color var(--feedback) ease; }
+.bank-case summary:hover h4, .bank-case summary:focus-visible h4 { color: var(--accent); }
+.bank-description { grid-column: 1; grid-row: 2; font-size: 14px; color: var(--muted); line-height: 1.85; margin-top: 6px; }
+.bank-case-details { margin: 0 49px 23px 0; }
+.case-notes { margin: 0; padding-left: 17px; border-left: 2px solid var(--soft-accent); }
+.case-notes > div + div { margin-top: 13px; }
+.case-notes dt { font: italic 15px/1.6 var(--serif); color: var(--accent); }
+.case-notes dd { margin: 4px 0 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
+.project { border-bottom: 1px solid var(--line); }
+.project:last-child { border-bottom: 0; }
+.project summary { list-style: none; display: grid; grid-template-columns: minmax(0, 1fr) 24px; gap: 0 25px; padding: 25px 0; cursor: pointer; }
+.project:first-child summary { padding-top: 0; }
+.project summary::-webkit-details-marker { display: none; }
+.project h3 { font: 26px/1.35 var(--serif); letter-spacing: -.025em; transition: color var(--feedback) ease; }
+.project summary > h3 { grid-column: 1; grid-row: 1; }
+.project-description { grid-column: 1; grid-row: 2; color: var(--muted); font-size: 14px; line-height: 1.85; margin-top: 9px; max-width: 690px; }
+.project-meta { grid-column: 1; grid-row: 3; color: var(--muted); font-size: 12px; line-height: 1.7; margin-top: 10px; }
+.project-toggle { grid-column: 2; grid-row: 1; align-self: start; display: grid; place-items: center; width: 24px; height: 32px; color: var(--accent); transition: transform 320ms var(--ease); }
+.project-toggle svg { width: 16px; height: 16px; }
+.project summary:hover h3, .project summary:focus-visible h3 { color: var(--accent); }
+:is(.project, .bank-case)[open] .project-toggle { transform: rotate(45deg); }
+.project-details { margin: 0 49px 25px 0; padding-left: 18px; border-left: 2px solid var(--soft-accent); color: var(--muted); font-size: 14px; line-height: 1.85; }
+.project-details .case-notes { padding: 0; border: 0; margin: 0; }
+.award { display: grid; grid-template-columns: 50px minmax(0, 1fr); gap: 14px; }
+.award + .award { margin-top: 20px; }
+.award-year { font: 12px/1.8 var(--mono); color: var(--muted); }
+.award h3 { font-size: 14px; font-weight: 500; line-height: 1.7; }
+.award p { font-size: 13px; color: var(--muted); margin-top: 3px; line-height: 1.85; }
+.toolkit { margin-top: 33px; padding-top: 26px; border-top: 1px solid var(--line); }
+.toolkit h3 { font-size: 14px; font-weight: 500; }
+.toolkit dl { margin: 12px 0 0; }
+.toolkit dl > div { display: grid; grid-template-columns: 112px minmax(0, 1fr); gap: 14px; }
+.toolkit dl > div + div { margin-top: 7px; }
+.toolkit dt, .toolkit dd { margin: 0; font-size: 13px; line-height: 1.85; color: var(--muted); }
+.contact-section { background: var(--surface); }
+.contact-section .section { border-top: 0; padding-top: 42px; padding-bottom: 41px; }
+.email-link { display: inline-flex; align-items: center; gap: 22px; max-width: 100%; font-family: var(--serif); font-size: clamp(17px, 2vw, 26px); line-height: 1.6; text-decoration: none; min-height: 44px; }
+.email-address { overflow-wrap: anywhere; min-width: 0; }
+.email-link svg { width: 16px; height: 16px; transition: transform var(--feedback) var(--ease); }
+.email-link:hover, .email-link:focus-visible { color: var(--accent); }
+.email-link:hover svg, .email-link:focus-visible svg, .contact-links a:hover svg, .contact-links a:focus-visible svg { transform: translate(2px, -2px); }
+.contact-links { display: flex; flex-wrap: wrap; gap: 8px 26px; margin-top: 11px; }
+.contact-links a { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; min-height: 44px; text-decoration: none; }
+.contact-links a:hover, .contact-links a:focus-visible { color: var(--accent); text-decoration: underline; }
+.contact-links a[download]:hover svg, .contact-links a[download]:focus-visible svg { transform: translateY(2px); }
+.site-footer { min-height: 83px; display: flex; align-items: center; justify-content: space-between; gap: 20px; font-size: 11px; color: var(--muted); }
+.footer-right { display: flex; align-items: center; gap: 26px; }
+.footer-right a { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; gap: 8px; }
+.footer-right a:hover, .footer-right a:focus-visible { color: var(--ink); }
+.footer-right a:hover svg, .footer-right a:focus-visible svg { transform: translateY(-2px); }
+.screen-reader-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+@media (prefers-reduced-motion: no-preference) {
+  .motion .hero h1 { animation: enter 600ms var(--ease) both; }
+  .motion .hero-copy { animation: enter 600ms 65ms var(--ease) both; }
+  .motion .hero-actions { animation: enter 600ms 130ms var(--ease) both; }
+  .section.has-entered { animation: enter 500ms var(--ease) both; }
+  .project[open] .project-details, .bank-case[open] .bank-case-details { animation: detail-enter 240ms var(--ease); }
+  @supports (interpolate-size: allow-keywords) and (transition-behavior: allow-discrete) and selector(::details-content) {
+    :is(.project, .bank-case) { interpolate-size: allow-keywords; }
+    :is(.project, .bank-case)::details-content { display: flow-root; height: 0; opacity: 0; overflow: clip; transition: height 380ms var(--ease), opacity 240ms ease, content-visibility 380ms allow-discrete; }
+    :is(.project, .bank-case)[open]::details-content { height: auto; opacity: 1; }
+    .project[open] .project-details, .bank-case[open] .bank-case-details { animation: none; }
+  }
+  @keyframes enter { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes detail-enter { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+}
+@media (max-width: 1050px) {
+  .navigation ul { gap: 25px; }
+  .section { grid-template-columns: 150px minmax(0, 1fr); gap: 28px; }
+  .coursework-groups { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .coursework-groups > div:last-child { grid-column: 1 / -1; }
+  .coursework-groups > div:last-child ul { columns: 2; column-gap: 28px; }
+  .coursework-groups li { break-inside: avoid; }
+}
+@media (max-width: 760px) {
+  html { scroll-padding-top: 90px; }
+  html:not(.js) { scroll-padding-top: 24px; }
+  html:not(.js) .site-header { position: static; }
+  .header-inner { min-height: 72px; flex-wrap: wrap; gap: 0; }
+  .navigation { width: 100%; padding-bottom: 12px; }
+  .navigation ul { flex-wrap: wrap; gap: 0 24px; }
+  .js .menu-button { display: inline-flex; align-items: center; gap: 10px; }
+  .menu-symbol { position: relative; width: 16px; height: 10px; }
+  .menu-symbol::before, .menu-symbol::after { content: ''; position: absolute; left: 0; right: 0; height: 1px; background: currentColor; transition: transform var(--feedback) var(--ease); }
+  .menu-symbol::before { top: 2px; }
+  .menu-symbol::after { bottom: 2px; }
+  .menu-button[aria-expanded='true'] .menu-symbol::before { top: 4px; transform: rotate(45deg); }
+  .menu-button[aria-expanded='true'] .menu-symbol::after { bottom: 5px; transform: rotate(-45deg); }
+  .js .navigation { display: none; }
+  .js .navigation[data-open='true'] { display: block; }
+  .hero { padding: 52px 0 45px; }
+  .hero h1 { font-size: clamp(51px, 10vw, 74px); }
+  .hero-copy { margin-top: 23px; }
+  .hero-subtitle { font-size: 15px; }
+  .hero-intro { font-size: 24px; margin-top: 16px; }
+  .hero-actions { margin-top: 22px; }
+  .section { grid-template-columns: minmax(0, 1fr); gap: 23px; padding: 35px 0 38px; }
+  .section-label { font-size: 21px; padding-top: 0; }
+  .record-title, .project h3 { font-size: 25px; }
+  .project summary { column-gap: 18px; }
+  .project-details, .bank-case-details { margin-right: 0; }
+  .contact-section .section { padding-block: 32px; }
+  .email-link { font-size: 23px; }
+  .site-footer { min-height: 80px; font-size: 11px; }
+  .footer-right { gap: 18px; }
+}
+@media (max-width: 480px) {
+  :root { --gutter: 24px; }
+  .hero h1 { max-width: 330px; font-size: clamp(52px, 15vw, 66px); line-height: 1.06; letter-spacing: -.055em; }
+  .hero-intro { font-size: 23px; }
+  .record-top { flex-wrap: wrap; gap: 5px; }
+  .record-date { font-size: 11px; }
+  .record-subtitle { font-size: 14px; }
+  .coursework-groups { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .coursework-groups > div:last-child ul { columns: 1; }
+  .project summary { column-gap: 13px; }
+  .bank-case summary { column-gap: 13px; }
+  .project h3 { font-size: 24px; }
+  .project-details { padding-left: 14px; }
+  .award { grid-template-columns: 40px minmax(0, 1fr); gap: 12px; }
+  .award-year { font-size: 11px; }
+  .toolkit dl > div { display: block; }
+  .toolkit dt { color: var(--ink); }
+  .toolkit dl > div + div { margin-top: 12px; }
+  .email-link { gap: 10px; font-size: clamp(16px, 4.5vw, 21px); }
+  .site-footer { align-items: start; flex-wrap: wrap; padding-block: 18px; gap: 10px; }
+  .footer-right { gap: 0; flex-direction: column; align-items: flex-end; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+@media print {
+  :root { --paper: #fff; --muted: #444; --gutter: 0px; }
+  .site-header, .hero-actions, .site-footer, .project-toggle, .contact-links { display: none; }
+  .wrap { width: 100%; }
+  .hero { padding: 0 0 24px; }
+  .hero h1 { font-size: 44px; }
+  .hero-intro { font-size: 19px; }
+  .section { padding-block: 23px; grid-template-columns: 110px minmax(0, 1fr); gap: 20px; opacity: 1 !important; transform: none !important; animation: none !important; }
+  .hero h1, .hero-copy, .hero-actions { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .record-top, .award, .project, .bank-case { break-inside: avoid; }
+  :is(.project, .bank-case)[open]::details-content { height: auto; opacity: 1; overflow: visible; transition: none; }
+  .contact-section { background: #fff; }
+  a { color: inherit; text-decoration: none; }
+}
+</style>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","@id":"https://www.francescoarezzo.com/#profile","url":"https://www.francescoarezzo.com/","dateModified":"2026-11-21","mainEntity":{"@type":"Person","@id":"https://www.francescoarezzo.com/#person","name":"Francesco Maria Arezzo","alternateName":"Francesco Arezzo","url":"https://www.francescoarezzo.com/","email":"mailto:francescomariaarezzo@gmail.com","description":"Undergraduate student in Mathematical and Computing Sciences for Artificial Intelligence at Bocconi University.","affiliation":{"@type":"CollegeOrUniversity","name":"Bocconi University"},"sameAs":["https://github.com/francescomariaarezzo-lab","https://www.linkedin.com/in/francesco-maria-arezzo/"]}}</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <div class="header-inner wrap">
+      <a class="wordmark" href="#top" aria-label="Francesco Arezzo, back to top"><span aria-hidden="true">fa<span class="wordmark-dot">.</span></span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="navigation">Menu<span class="menu-symbol" aria-hidden="true"></span></button>
+      <nav class="navigation" id="navigation" aria-label="Main navigation"><ul><li><a href="#education">Education</a></li><li><a href="#experience">Experience</a></li><li><a href="#projects">Projects</a></li><li><a href="#recognition">Recognition</a></li><li><a href="#contact">Contact</a></li></ul></nav>
+    </div>
+  </header>
+  <main id="main" tabindex="-1">
+    <div class="wrap">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <h1 id="hero-title">Francesco Arezzo</h1>
+        <div class="hero-copy">
+          <p class="hero-subtitle">Mathematics &amp; artificial intelligence at Bocconi.</p>
+          <p class="hero-intro">I enjoy exploring mathematical ideas and applying them to problems in artificial intelligence, reinforcement learning and data science.</p>
+          <p class="hero-context">BSc student · Milan, Italy</p>
+        </div>
+        <div class="hero-actions">
+          <a class="text-link" href="#projects">Selected projects <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v16M6 14l6 6 6-6"/></svg></a>
+          <a class="text-link secondary" href="./assets/Francesco_Arezzo_Profile.pdf" download="Francesco_Arezzo_Profile.pdf">Profile PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v16M6 14l6 6 6-6"/></svg></a>
+        </div>
+      </section>
+      <section class="section" id="education" aria-labelledby="education-label" tabindex="-1">
+        <h2 class="section-label" id="education-label">Education</h2>
+        <div class="section-content"><article class="education-record">
+    <div class="record-top"><h3 class="record-title">Bocconi University</h3><span class="record-date">2024 — 2027</span></div>
+    <p class="record-subtitle">BSc in Mathematical and Computing Sciences for Artificial Intelligence</p>
+    <p class="record-meta">Milan, Italy</p>
+    <p class="record-note">Expected graduation July 2027</p>
+    <div class="coursework"><h4>Coursework</h4><p class="coursework-note">Across the BAI degree programme.</p><div class="coursework-groups"><div><h5>Mathematics &amp; statistics</h5><ul><li>Mathematical Analysis I and II</li><li>Advanced Analysis and Optimization</li><li>Linear Algebra and Geometry</li><li>Probability</li><li>Mathematical Statistics</li><li>Dynamical Systems</li><li>Complex Analysis</li><li>Differential Geometry</li></ul></div><div><h5>Computer science &amp; AI</h5><ul><li>Introduction to Computer Science and Programming</li><li>Computing Theory and Algorithms</li><li>Advanced Programming and Optimization Algorithms</li><li>Mathematical Modelling in Machine Learning</li></ul></div><div><h5>Further quantitative coursework</h5><ul><li>Stochastic Processes</li><li>Mathematical Modelling for Finance</li><li>Game Theory and Mechanism Design</li><li>Physics I and II</li><li>Economic Sciences</li><li>Decision Theory and Human Behavior</li></ul></div></div></div>
+  </article>
+<article class="education-record">
+    <div class="record-top"><h3 class="record-title">IE University</h3><span class="record-date">Spring 2027</span></div>
+    <p class="record-subtitle">Exchange semester</p>
+    <p class="record-meta">Incoming exchange · Madrid, Spain</p>
+    <p class="record-note">Exchange confirmed; individual courses awaiting academic confirmation.</p>
+    
+  </article>
+<article class="education-record">
+    <div class="record-top"><h3 class="record-title">High School</h3><span class="record-date">Graduated 2024</span></div>
+    <p class="record-subtitle">High School Diploma</p>
+    
+    <p class="record-note">100/100 cum laude · Italian National Register of Excellence</p>
+    
+  </article><p class="certificate">Certification: Introduction to Linux for HPC · Bocconi University · May 2026</p></div>
+      </section>
+      <section class="section" id="experience" aria-labelledby="experience-label" tabindex="-1">
+        <h2 class="section-label" id="experience-label">Experience</h2>
+        <div class="section-content"><div class="record-top"><h3 class="record-title">APS Bank</h3><span class="record-date">Summer 2026</span></div>
+    <p class="record-meta">Intern · Malta · Completed</p>
+    <div class="contributions"><details class="bank-case"><summary><h4>Property valuation &amp; housing risk</h4><span class="bank-description">Built machine-learning models for residential property valuation and compared model-implied housing risk across Maltese localities.</span><span class="project-toggle" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="bank-case-details"><dl class="case-notes"><div><dt>Approach</dt><dd>Used property modelling to examine geographical differences in estimated valuations and model-implied risk, keeping the locality dimension visible in the analysis.</dd></div><div><dt>Output</dt><dd>Locality-level valuation and risk comparisons, providing a basis for interpreting housing-market differences across Malta.</dd></div></dl></div></details><details class="bank-case"><summary><h4>Population forecasting &amp; housing demand</h4><span class="bank-description">Developed locality-level population forecasts and connected demographic trajectories to possible changes in housing demand and valuations.</span><span class="project-toggle" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="bank-case-details"><dl class="case-notes"><div><dt>Approach</dt><dd>Examined alternative population trajectories by locality and considered how differences in demographic change could feed into housing-demand and valuation scenarios.</dd></div><div><dt>Output</dt><dd>A link between demographic forecasts and housing scenarios, allowing population assumptions to be considered alongside property-market analysis.</dd></div></dl></div></details><details class="bank-case"><summary><h4>Retail banking pricing</h4><span class="bank-description">Benchmarked competitors’ retail fees and charging structures, translating the comparison into pricing-strategy recommendations.</span><span class="project-toggle" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span></summary><div class="bank-case-details"><dl class="case-notes"><div><dt>Approach</dt><dd>Compared subscription models, low-activity charges and alternative approaches to monetising banking usage.</dd></div><div><dt>Output</dt><dd>A comparative assessment of charging structures and pricing-strategy recommendations informed by competitor benchmarking.</dd></div></dl></div></details></div></div>
+      </section>
+      <section class="section" id="projects" aria-labelledby="projects-label" tabindex="-1">
+        <h2 class="section-label" id="projects-label">Academic projects</h2>
+        <div class="section-content"><details class="project" id="project-market-sensitivity">
+    <summary>
+      <h3>S&amp;P 500 Market Sensitivity</h3>
+      <span class="project-description">Studied variation in S&amp;P 500 companies’ market betas through regression and statistical model selection.</span>
+      <span class="project-meta">Statistical inference · Finance · Completed</span>
+      <span class="project-toggle" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+    </summary>
+    <div class="project-details"><dl class="case-notes"><div><dt>Approach</dt><dd>Used regression to investigate variation in companies’ market betas. Compared model specifications with the Bayesian Information Criterion (BIC), balancing fit against complexity, and used analysis of variance (ANOVA) to examine explanatory relationships.</dd></div><div><dt>Context</dt><dd>Market beta describes sensitivity to broad market movements. The project connected this financial concept to statistical inference and the choice of an appropriate explanatory model.</dd></div></dl></div>
+  </details>
+<details class="project" id="project-ames-housing">
+    <summary>
+      <h3>Ames Housing</h3>
+      <span class="project-description">Modelled house prices through data preparation, feature engineering and comparison of regression models.</span>
+      <span class="project-meta">Supervised learning · Regression · Completed</span>
+      <span class="project-toggle" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+    </summary>
+    <div class="project-details"><dl class="case-notes"><div><dt>Approach</dt><dd>Prepared the Ames Housing data, engineered features and compared regression approaches, including XGBoost. The work treated prediction as a complete modelling workflow, from the representation of housing characteristics to the comparison of candidate models.</dd></div><div><dt>Context</dt><dd>The project examined house-price prediction through systematic data preparation, feature engineering and model evaluation.</dd></div></dl></div>
+  </details>
+<details class="project" id="project-single-cell-hypoxia">
+    <summary>
+      <h3>Single-Cell Hypoxia Classification</h3>
+      <span class="project-description">Studied the classification of cancer cells under hypoxic and normoxic conditions using gene-expression data.</span>
+      <span class="project-meta">Statistical learning · Biology · Completed</span>
+      <span class="project-toggle" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 5v14M5 12h14"/></svg></span>
+    </summary>
+    <div class="project-details"><dl class="case-notes"><div><dt>Approach</dt><dd>Used gene-expression features to study the classification of cancer cells under hypoxic and normoxic conditions. Examined predictions alongside hypoxia-signature scores to assess whether the classifications were biologically consistent.</dd></div><div><dt>Context</dt><dd>The project connected a supervised-learning task with a biological check on model predictions, extending statistical learning beyond financial and housing data.</dd></div></dl></div>
+  </details></div>
+      </section>
+      <section class="section" id="recognition" aria-labelledby="recognition-label" tabindex="-1">
+        <h2 class="section-label" id="recognition-label">Recognition</h2>
+        <div class="section-content">
+          <ul class="awards"><li class="award"><span class="award-year">2024</span><div><h3>Italian National Register of Excellence</h3><p>Recognized following high-school graduation with 100/100 cum laude.</p></div></li><li class="award"><span class="award-year">2023</span><div><h3>Regional Physics Olympiad</h3><p>Second place · Eastern Sicily.</p></div></li><li class="award"><span class="award-year">2023</span><div><h3>INFN Special Mention</h3><p>Fermi in Movimento · Analysis of sports motion using Tracker software.</p></div></li></ul>
+          <div class="toolkit" aria-labelledby="toolkit-label"><h3 id="toolkit-label">Toolkit & languages</h3><dl><div><dt>Python</dt><dd>NumPy · pandas · SciPy · scikit-learn · XGBoost · matplotlib</dd></div><div><dt>Languages</dt><dd>Italian · Native · English · C1 / IELTS 8.0 · Spanish · Intermediate</dd></div></dl></div>
+        </div>
+      </section>
+    </div>
+    <div class="contact-section">
+      <section class="section wrap" id="contact" aria-labelledby="contact-label" tabindex="-1">
+        <h2 class="section-label" id="contact-label">Contact</h2>
+        <div class="contact-content">
+          <a class="email-link" href="mailto:francescomariaarezzo@gmail.com"><span class="email-address">francescomariaarezzo@gmail.com</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg></a>
+          <div class="contact-links">
+            <a href="https://github.com/francescomariaarezzo-lab" target="_blank" rel="noopener noreferrer">GitHub <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg><span class="screen-reader-only"> (opens in a new tab)</span></a>
+            <a href="https://www.linkedin.com/in/francesco-maria-arezzo/" target="_blank" rel="noopener noreferrer">LinkedIn <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M6 18 18 6M6 6h12v12"/></svg><span class="screen-reader-only"> (opens in a new tab)</span></a>
+            <a href="./assets/Francesco_Arezzo_Profile.pdf" download="Francesco_Arezzo_Profile.pdf">Profile PDF <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 4v16M6 14l6 6 6-6"/></svg></a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+  <footer class="site-footer wrap">
+    <p>© 2026 Francesco Arezzo</p>
+    <div class="footer-right"><span>Updated November 2026</span><a href="#top">Top <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M12 20V4M6 10l6-6 6 6"/></svg></a></div>
+  </footer>
+  <script>(() => {
+  'use strict';
+  const root = document.documentElement;
+  const menu = document.querySelector('.menu-button');
+  const navigation = document.getElementById('navigation');
+  const motionAllowed = window.matchMedia?.('(prefers-reduced-motion: no-preference)').matches;
+  if (motionAllowed) root.classList.add('motion');
+
+  if (menu && navigation) {
+    root.classList.add('js');
+    const menuOpen = () => menu.getAttribute('aria-expanded') === 'true';
+    const setMenu = (open, focusMenu = false) => {
+      menu.setAttribute('aria-expanded', String(open));
+      navigation.dataset.open = String(open);
+      if (focusMenu) menu.focus();
+    };
+    menu.addEventListener('click', () => setMenu(!menuOpen()));
+    navigation.addEventListener('click', event => {
+      const link = event.target.closest('a');
+      if (!link || !menuOpen()) return;
+      setMenu(false);
+      if (link.hash) document.getElementById(link.hash.slice(1))?.focus({ preventScroll: true });
+    });
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && menuOpen()) setMenu(false, true);
+    });
+    document.addEventListener('click', event => {
+      if (menuOpen() && !event.target.closest('.site-header')) setMenu(false);
+    });
+    window.matchMedia?.('(min-width: 761px)').addEventListener?.('change', event => {
+      if (event.matches && menuOpen()) setMenu(false);
+    });
+  }
+
+  if (!('IntersectionObserver' in window)) return;
+  const links = [...document.querySelectorAll('.navigation a[href^="#"]')];
+  const sections = links.map(link => document.getElementById(link.hash.slice(1))).filter(Boolean);
+  const visible = new Map();
+  const revealed = new WeakSet();
+  // One observer serves the reading indicator and one-time section entrances.
+  // Sections stay visible before JavaScript, before intersection, and on failure.
+  const observer = new IntersectionObserver(entries => {
+    for (const entry of entries) {
+      visible.set(entry.target, entry.isIntersecting);
+      if (entry.isIntersecting && motionAllowed && !revealed.has(entry.target)) {
+        entry.target.classList.add('has-entered');
+        revealed.add(entry.target);
+      }
+    }
+    const active = sections.find(section => visible.get(section));
+    for (const link of links) {
+      if (active && link.hash === `#${active.id}`) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }
+  }, { rootMargin: '-10% 0px -18% 0px', threshold: 0 });
+  sections.forEach(section => observer.observe(section));
+})();
+</script>
+</body>
+</html>
